@@ -1,6 +1,10 @@
 """File for enigma related types"""
 
 
+class Rotor:
+    """Rotor class"""
+
+
 class RotorConfig:
     """RotorConfig class"""
 

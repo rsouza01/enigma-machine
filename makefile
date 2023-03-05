@@ -3,6 +3,9 @@
 help:
 	@echo 'Available commands:'
 
+run:
+	python -m enigma --suppress-banner --debug-mode encrypt -p "enigma"
+
 run-app:
 	python -m enigma -v
 	@echo "--------------------------------"

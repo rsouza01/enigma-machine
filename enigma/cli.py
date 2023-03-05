@@ -40,23 +40,37 @@ def _version_callback(value: bool) -> None:
         raise typer.Exit()
 
 
+def _banner_callback(suppress_banner: bool) -> None:
+    if not suppress_banner:
+        with open("./enigma/banner.txt", 'r', encoding="utf-8") as banner:
+            print(banner.read())
+
+
+def _debug_mode_callback(debug_mode: bool) -> None:
+    print(f"Debug mode: { 'ON' if debug_mode else 'OFF'}")
+
+
 @app.callback()
 def main(
     version: Optional[bool] = typer.Option(
         None, "--version", "-v",
         help="Show the application's version and exit.",
         callback=_version_callback,
-        is_eager=True,
+        is_eager=True
     ),
     suppress_banner: Optional[bool] = typer.Option(
         False, "--suppress-banner", "-sb",
-        help="Suppress the banner if set"
+        help="Suppress the banner if set",
+        callback=_banner_callback,
+        is_eager=True
+    ),
+    debug_mode: Optional[bool] = typer.Option(
+        False, "--debug-mode", "-d",
+        help="Debug mode",
+        callback=_debug_mode_callback,
+        is_eager=True
     )
 
 ) -> None:
     """Main handler."""
-    if not suppress_banner:
-        with open("./enigma/banner.txt", 'r', encoding="utf-8") as banner:
-            print(banner.read())
-
     return
