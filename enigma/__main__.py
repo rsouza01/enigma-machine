@@ -5,8 +5,7 @@ from enigma import cli, __app_name__
 
 
 def main():
-    with open("./enigma/banner.txt", 'r') as banner:
-        print(banner.read())
+    """Main function"""
     cli.app(prog_name=__app_name__)
 
 

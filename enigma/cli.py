@@ -47,8 +47,16 @@ def main(
         help="Show the application's version and exit.",
         callback=_version_callback,
         is_eager=True,
+    ),
+    suppress_banner: Optional[bool] = typer.Option(
+        False, "--suppress-banner", "-sb",
+        help="Suppress the banner if set"
     )
 
 ) -> None:
     """Main handler."""
+    if not suppress_banner:
+        with open("./enigma/banner.txt", 'r', encoding="utf-8") as banner:
+            print(banner.read())
+
     return
