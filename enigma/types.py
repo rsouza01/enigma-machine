@@ -5,6 +5,15 @@ class Rotor:
     """Rotor class"""
 
 
+class ReflectorRotor(Rotor):
+    pass
+
+
+class MovingRotor(Rotor):
+    pass
+
+
+
 class RotorConfig:
     """RotorConfig class"""
 
